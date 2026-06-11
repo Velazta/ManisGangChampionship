@@ -91,12 +91,12 @@ export default function Story() {
         >
           {/* Kolom Kiri */}
           <p className="font-poppins font-light text-[13px] sm:text-base lg:text-[24.39px] leading-relaxed text-center">
-            Unlock the creative potential and impact of your web experiences. Smoothing the scroll pulls users into the flow of the experience that feels so substantial that they forget they&apos;re navigating a web page.
+            Welcome to MGC Vol. 8: Violence District, our final chapter and the official &quot;Last Dance&quot; of this tournament series. Over the course of eight volumes, this event has grown into a premier competitive platform built on sportsmanship and solidarity. We are immensely proud of the enthusiasm, dedication, and professional level of competition showcased by all participants throughout the years.
           </p>
 
           {/* Kolom Kanan */}
           <p className="font-poppins font-light text-[13px] sm:text-base lg:text-[24.39px] leading-relaxed text-center">
-            Unlock the creative potential and impact of your web experiences. Smoothing the scroll pulls users into the flow of the experience that feels so substantial that they forget they&apos;re navigating a web page.
+            As the organizing committee, we are hosting this event for the last time and officially stepping down. We extend our deepest gratitude to every player, supporter, and partner who has been an integral part of this long journey. While this volume marks the end of our operations, the legacy, milestones, and memories we have built together will remain a proud achievement.
           </p>
         </div>
       </div>

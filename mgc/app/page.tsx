@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
+import Prizepool from "@/components/Prizepool";
 import Header from "@/components/ui/Header";
 import AudioPlayer from "@/components/AudioPlayer";
 
@@ -17,6 +18,9 @@ export default function Home() {
       
       {/* Section 2: Story */}
       <Story />
+
+      {/* Section 3: Prizepool */}
+      <Prizepool />
     </main>
   );
 }
