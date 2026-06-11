@@ -103,7 +103,7 @@ export default function GoldParticles() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none select-none z-25"
+      className="fixed inset-0 w-full h-full pointer-events-none select-none z-30"
     />
   );
 }
