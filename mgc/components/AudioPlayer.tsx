@@ -11,7 +11,7 @@ export default function AudioPlayer() {
     // Aset diletakkan di public/audio/background-theme.mp3
     const audio = new Audio("/audio/akuma no ko.mp3");
     audio.loop = true;
-    audio.volume = 0.1; // Atur volume agar tidak terlalu keras (10%)
+    audio.volume = 0.05; // Atur volume agar tidak terlalu keras (5%)
     audioRef.current = audio;
 
     // Upaya autoplay saat pertama kali interaksi terdeteksi (opsional)
