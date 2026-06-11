@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import GoldParticles from "./GoldParticles";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -92,8 +91,6 @@ export default function Hero() {
           backgroundPosition: "center",
         }}
       />
-
-      <GoldParticles />
 
       {/* Layer 2: Trophy & Foreground (Diposisikan secara Absolut Terpisah - Responsif) */}
       <div 

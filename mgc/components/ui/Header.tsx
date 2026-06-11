@@ -1,10 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useLenis } from "lenis/react";
 import gsap from "gsap";
 
 export default function Header() {
   const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+  const lenis = useLenis();
 
   useEffect(() => {
     // Animasi kemunculan Header Nav saat pertama dimuat
@@ -14,6 +19,35 @@ export default function Header() {
       { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.1 }
     );
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
+    const targetId = item.toLowerCase().replace(/\s+/g, "-");
+    
+    if (item === "HOMEPAGE") {
+      e.preventDefault();
+      if (pathname === "/") {
+        // Jika sudah di homepage, smooth scroll ke paling atas
+        lenis?.scrollTo(0, { 
+          duration: 1.5, 
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) 
+        });
+      } else {
+        router.push("/");
+      }
+      return;
+    }
+
+    const element = document.getElementById(targetId);
+    if (pathname === "/" && element) {
+      e.preventDefault();
+      // Smooth scroll menggunakan Lenis
+      lenis?.scrollTo(`#${targetId}`, {
+        duration: 1.5,
+        offset: 0,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+    }
+  };
 
   return (
     <header 
@@ -31,6 +65,7 @@ export default function Header() {
             <a
               key={item}
               href={href}
+              onClick={(e) => handleNavClick(e, item)}
               className="text-white font-poppins text-[10px] sm:text-xs font-semibold tracking-[0.12em] sm:tracking-[0.15em] transition-all duration-300 hover:text-primary hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"
             >
               {item}
