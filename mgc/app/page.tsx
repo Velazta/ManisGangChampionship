@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Story from "@/components/Story";
 import Header from "@/components/ui/Header";
 import AudioPlayer from "@/components/AudioPlayer";
 
@@ -14,7 +15,8 @@ export default function Home() {
       {/* Section 1: Hero */}
       <Hero />
       
-      {/* Section 2 dst. (Bisa ditambahkan nanti) */}
+      {/* Section 2: Story */}
+      <Story />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Cinzel_Decorative } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
@@ -19,6 +19,12 @@ const poppins = Poppins({
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+const cinzelDecorative = Cinzel_Decorative({
+  variable: "--font-cinzel-decorative",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Manis Gang Championship | Violence District",
   description: "Official Tournament Page For Manis Gang Championship",
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} dark h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${cinzelDecorative.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll>

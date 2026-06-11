@@ -101,6 +101,7 @@
   --font-aodaliya: var(--font-aodaliya);
   --font-helvetica: var(--font-helvetica);
   --font-poppins: var(--font-poppins);
+  --font-cinzel: var(--font-cinzel-decorative);
 
   /* Radius sizing */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -191,6 +192,11 @@
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Custom white text glow utility */
+@utility text-glow-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.15);
 }
 
 
