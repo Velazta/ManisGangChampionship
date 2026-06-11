@@ -93,7 +93,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Efek Partikel Salju Emas Berkilau (Z-25) */}
       <GoldParticles />
 
       {/* Layer 2: Trophy & Foreground (Diposisikan secara Absolut Terpisah - Responsif) */}
