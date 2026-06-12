@@ -7,11 +7,9 @@ export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // Membuat instance audio saat komponen di-mount
-    // Aset diletakkan di public/audio/background-theme.mp3
     const audio = new Audio("/audio/akuma no ko.mp3");
     audio.loop = true;
-    audio.volume = 0.05; // Atur volume agar tidak terlalu keras (5%)
+    audio.volume = 0.05; 
     audioRef.current = audio;
 
     // Upaya autoplay saat pertama kali interaksi terdeteksi (opsional)
