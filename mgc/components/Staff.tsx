@@ -36,8 +36,6 @@ export default function Staff() {
     // Daftarkan ScrollTrigger di sisi klien
     gsap.registerPlugin(ScrollTrigger);
 
-    let isLoadAnimDone = false;
-
     const ctx = gsap.context(() => {
       // 1. Animasi Title (OUR STAFF) - Glow Putih
       gsap.fromTo(
@@ -72,111 +70,11 @@ export default function Staff() {
               trigger: sliderContainerRef.current,
               start: "top 80%",
               toggleActions: "play none none none",
-            },
-            onComplete: () => {
-              isLoadAnimDone = true;
             }
           }
         );
       }
     }, sectionRef);
-
-    // 3. Logika Drag-to-Scroll & Auto-Scroll (Desktop & Mobile)
-    const slider = sliderContainerRef.current;
-    const marquee = marqueeRef.current;
-
-    if (slider && marquee) {
-      let isDown = false;
-      let startX: number;
-      let scrollLeft: number;
-      let isHovered = false;
-      let animationFrameId: number;
-
-      let singleSetWidth = marquee.scrollWidth / 2;
-
-      // KECEPAN SLIDE: Ubah nilai ini untuk mengatur kecepatan (semakin kecil nilainya, semakin lambat, misal 0.5 atau 0.8)
-      const scrollSpeed = 0.5;
-
-      const handleResize = () => {
-        singleSetWidth = marquee.scrollWidth / 2;
-      };
-      window.addEventListener("resize", handleResize);
-
-      const step = () => {
-        if (isLoadAnimDone && !isDown && !isHovered && singleSetWidth > 0) {
-          slider.scrollLeft += scrollSpeed;
-          if (slider.scrollLeft >= singleSetWidth) {
-            slider.scrollLeft -= singleSetWidth;
-          }
-        }
-        animationFrameId = requestAnimationFrame(step);
-      };
-
-      // Mulai auto-scroll loop
-      animationFrameId = requestAnimationFrame(step);
-
-      // Event Handlers untuk Drag-to-Scroll (Desktop)
-      const handleMouseDown = (e: MouseEvent) => {
-        isDown = true;
-        slider.classList.add("cursor-grabbing");
-        slider.classList.remove("cursor-grab");
-        startX = e.pageX - slider.offsetLeft;
-        scrollLeft = slider.scrollLeft;
-      };
-
-      const handleMouseLeave = () => {
-        isDown = false;
-        isHovered = false;
-        slider.classList.add("cursor-grab");
-        slider.classList.remove("cursor-grabbing");
-      };
-
-      const handleMouseUp = () => {
-        isDown = false;
-        slider.classList.add("cursor-grab");
-        slider.classList.remove("cursor-grabbing");
-      };
-
-      const handleMouseMove = (e: MouseEvent) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5; // Faktor sensitivitas seret
-        slider.scrollLeft = scrollLeft - walk;
-
-        // Reset scrollLeft saat melewati batas agar drag scroll terus menyambung
-        if (slider.scrollLeft >= singleSetWidth) {
-          slider.scrollLeft -= singleSetWidth;
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
-        } else if (slider.scrollLeft <= 0) {
-          slider.scrollLeft += singleSetWidth;
-          startX = e.pageX - slider.offsetLeft;
-          scrollLeft = slider.scrollLeft;
-        }
-      };
-
-      const handleMouseEnter = () => {
-        isHovered = true;
-      };
-
-      slider.addEventListener("mousedown", handleMouseDown);
-      slider.addEventListener("mouseleave", handleMouseLeave);
-      slider.addEventListener("mouseup", handleMouseUp);
-      slider.addEventListener("mousemove", handleMouseMove);
-      slider.addEventListener("mouseenter", handleMouseEnter);
-
-      return () => {
-        ctx.revert();
-        cancelAnimationFrame(animationFrameId);
-        window.removeEventListener("resize", handleResize);
-        slider.removeEventListener("mousedown", handleMouseDown);
-        slider.removeEventListener("mouseleave", handleMouseLeave);
-        slider.removeEventListener("mouseup", handleMouseUp);
-        slider.removeEventListener("mousemove", handleMouseMove);
-        slider.removeEventListener("mouseenter", handleMouseEnter);
-      };
-    }
 
     return () => ctx.revert();
   }, []);
@@ -228,12 +126,12 @@ export default function Staff() {
         {/* Horizontal Marquee Card Slider Container */}
         <div
           ref={sliderContainerRef}
-          className="relative w-full mt-10 sm:mt-16 lg:mt-20 overflow-hidden py-4 cursor-grab active:cursor-grabbing select-none"
+          className="relative w-full mt-10 sm:mt-16 lg:mt-20 overflow-hidden py-4 select-none"
         >
-          {/* Slider Track Wrapper */}
+          {/* Slider Track Wrapper with Infinite CSS Marquee */}
           <div
             ref={marqueeRef}
-            className="flex gap-6 w-max flex-nowrap whitespace-nowrap px-4"
+            className="animate-marquee-infinite flex gap-6 w-max flex-nowrap whitespace-nowrap pl-4"
           >
             {marqueeList.map((staff, index) => (
               <div
