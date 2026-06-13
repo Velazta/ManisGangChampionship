@@ -13,7 +13,7 @@ const faqData = [
   {
     id: "2",
     question: "Bagaimana cara melakukan registrasi pendaftaran?",
-    answer: "Pendaftaran dapat dilakukan dengan mengisi formulir registrasi yang akan tersedia di discord resmi kami di https://discord.gg/fXHWVZkGa.",
+    answer: "Pendaftaran dapat dilakukan dengan mengisi formulir registrasi yang akan tersedia di discord resmi kami di MANIS GANG.",
   },
   {
     id: "3",
