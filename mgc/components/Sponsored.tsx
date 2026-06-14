@@ -1,56 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const ValorantDistrictLogo = () => (
-  <svg className="w-full h-full" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Geometric V logo */}
-    <path d="M12 15 H24 L34 45 H22 Z" fill="#D27000" />
-    <path d="M26 15 H38 L28 45 H16 Z" fill="white" fillOpacity="0.85" />
-    <text x="52" y="28" fill="white" className="font-poppins font-black text-[13.5px] tracking-[0.11em] uppercase">VALORANT</text>
-    <text x="52" y="42" fill="#D27000" className="font-poppins font-semibold text-[9.5px] tracking-[0.24em] uppercase">DISTRICT</text>
-  </svg>
-);
-
-const VdrIdnLogo = () => (
-  <svg className="w-full h-full" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Interlocking crest */}
-    <path d="M12 15 L32 15 L37 25 L17 25 Z" fill="white" fillOpacity="0.9" />
-    <path d="M8 28 L28 28 L23 45 L3 45 Z" fill="#D27000" />
-    <path d="M30 28 L35 28 L40 45 L35 45 Z" fill="white" fillOpacity="0.4" />
-    <text x="48" y="28" fill="white" className="font-poppins font-black text-[13.5px] tracking-[0.13em] uppercase">VDR IDN</text>
-    <text x="48" y="42" fill="#D27000" className="font-poppins font-semibold text-[9.5px] tracking-[0.21em] uppercase">PARTNERS</text>
-  </svg>
-);
-
-const MgcStoreLogo = () => (
-  <svg className="w-full h-full" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Monogram brand icon */}
-    <path d="M22 15 L30 23 L35 15 L40 33 L15 33 Z" fill="#D27000" />
-    <circle cx="27" cy="40" r="2.5" fill="white" />
-    <circle cx="34" cy="40" r="2.5" fill="white" />
-    <text x="50" y="28" fill="white" className="font-poppins font-black text-[13.5px] tracking-[0.16em] uppercase">MGC</text>
-    <text x="50" y="42" fill="#D27000" className="font-poppins font-semibold text-[9.5px] tracking-[0.28em] uppercase">STORE</text>
-  </svg>
-);
-
-const VelaztaDesignLogo = () => (
-  <svg className="w-full h-full" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Interlocking polygons */}
-    <path d="M12 15 H38 L25 31 Z" fill="white" fillOpacity="0.9" />
-    <path d="M25 31 H42 L34 45 Z" fill="#D27000" />
-    <text x="52" y="28" fill="white" className="font-poppins font-black text-[13.5px] tracking-[0.14em] uppercase">VELAZTA</text>
-    <text x="52" y="42" fill="#D27000" className="font-poppins font-semibold text-[9px] tracking-[0.22em] uppercase">DESIGN STUDIO</text>
-  </svg>
-);
-
 const sponsors = [
-  { id: "1", render: () => <ValorantDistrictLogo /> },
-  { id: "2", render: () => <VdrIdnLogo /> },
-  { id: "3", render: () => <MgcStoreLogo /> },
-  { id: "4", render: () => <VelaztaDesignLogo /> },
+  { id: "1", name: "VELAZTA", img: "/images/velazta.png", width: 138, height: 80 },
+  { id: "2", name: "NEOPAREA", img: "/images/neoparea.png", width: 80, height: 80 },
+  { id: "3", name: "SHIFER", img: "/images/SHIFER.png", width: 80, height: 80 },
 ];
 
 export default function Sponsored() {
@@ -62,41 +20,41 @@ export default function Sponsored() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // 1. Animasi Judul
-      gsap.fromTo(
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // 1. Smooth Fade-in + Blur + Slide-up for Title
+      tl.fromTo(
         titleRef.current,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30, filter: "blur(4px)" },
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
+          filter: "blur(0px)",
+          duration: 0.8,
+          ease: "power2.out",
         }
       );
 
-      // 2. Animasi Staggered Grid Cards
+      // 2. Staggered Entrance for Sponsor Cards
       if (gridRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           gridRef.current.children,
-          { opacity: 0, y: 40, scale: 0.95 },
+          { opacity: 0, y: 25, scale: 0.95 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out",
+          },
+          "-=0.4"
         );
       }
     }, sectionRef);
@@ -122,7 +80,7 @@ export default function Sponsored() {
             textShadow: "0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2)"
           }}
         >
-          OFFICIAL SPONSORS
+          SPONSORED x SUPPORTED BY
         </h2>
 
         {/* Grid Sponsor Logos - Clean layout without card boxes */}
@@ -131,11 +89,19 @@ export default function Sponsored() {
           className="flex flex-wrap items-center justify-center gap-10 sm:gap-14 lg:gap-16 w-full mt-14 max-w-[1000px]"
         >
           {sponsors.map((sponsor) => (
-            <div
-              key={sponsor.id}
-              className="relative flex items-center justify-center w-[180px] sm:w-[200px] h-14 transition-all duration-500 hover:scale-105 cursor-pointer select-none opacity-45 hover:opacity-100 hover:drop-shadow-[0_0_12px_rgba(210,112,0,0.75)]"
-            >
-              {sponsor.render()}
+            <div key={sponsor.id} className="flex items-center justify-center">
+              <div
+                className="relative flex items-center justify-center transition-all duration-500 hover:scale-105 cursor-pointer select-none opacity-45 hover:opacity-100 hover:drop-shadow-[0_0_12px_rgba(210,112,0,0.75)]"
+              >
+                <Image
+                  src={sponsor.img}
+                  alt={`${sponsor.name} Logo`}
+                  width={sponsor.width}
+                  height={sponsor.height}
+                  className="h-16 w-auto sm:h-24 md:h-32 object-contain select-none pointer-events-none"
+                  priority
+                />
+              </div>
             </div>
           ))}
         </div>
