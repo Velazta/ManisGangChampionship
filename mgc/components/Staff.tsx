@@ -11,7 +11,7 @@ const staffMembers = [
   { id: "2", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
   { id: "3", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
   { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
-  { id: "5", name: "VELAZTA", role: "DESIGNER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
+  { id: "5", name: "VELAZTA", role: "DESIGNER & PROGRAMMER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
   { id: "6", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
   { id: "7", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
   { id: "8", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
