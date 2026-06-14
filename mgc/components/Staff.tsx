@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const staffMembers = [
   { id: "1", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
-  { id: "2", name: "INDRA", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "2", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
   { id: "3", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
   { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
   { id: "5", name: "VELAZTA", role: "DESIGNER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
