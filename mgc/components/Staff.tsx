@@ -5,21 +5,23 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// List staff members dasar (4 orang)
+
 const staffMembers = [
-  { id: "1", name: "VELAZTA", role: "DESAINER" },
-  { id: "2", name: "MGC STAFF 1", role: "DEVELOPER" },
-  { id: "3", name: "MGC STAFF 2", role: "ORGANIZER" },
-  { id: "4", name: "MGC STAFF 3", role: "COMMUNITY" },
+  { id: "1", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
+  { id: "2", name: "INDRA", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "3", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
+  { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
+  { id: "5", name: "VELAZTA", role: "DESIGNER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
+  { id: "6", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
+  { id: "7", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
+  { id: "8", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
 ];
 
-// Buat list 20 staff dengan menduplikasi data dasar
 const extendedStaffList = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 3; i++) {
   extendedStaffList.push(...staffMembers.map((staff, index) => ({
     ...staff,
     id: `${staff.id}-${i}-${index}`,
-    name: staff.name,
   })));
 }
 
@@ -140,7 +142,7 @@ export default function Staff() {
               >
                 {/* Card Background Image (Avatar + Orange bottom gradient) */}
                 <Image
-                  src="/images/CARD BACKGROUND.png"
+                  src={staff.image}
                   alt={`${staff.name} Avatar`}
                   fill
                   className="object-cover select-none pointer-events-none"
