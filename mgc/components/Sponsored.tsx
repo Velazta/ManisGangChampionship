@@ -9,6 +9,7 @@ const sponsors = [
   { id: "1", name: "VELAZTA", img: "/images/velazta.png", width: 138, height: 80 },
   { id: "2", name: "NEOPAREA", img: "/images/neoparea.png", width: 80, height: 80 },
   { id: "3", name: "SHIFER", img: "/images/SHIFER.png", width: 80, height: 80 },
+  { id: "4", name: "SHIROU", img: "/images/SHIROU.png", width: 80, height: 80 },
 ];
 
 export default function Sponsored() {
