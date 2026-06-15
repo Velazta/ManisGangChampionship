@@ -82,7 +82,7 @@ export default function Hero() {
       ref={containerRef} 
       className="relative w-full h-screen min-h-[750px] overflow-hidden flex flex-col items-center bg-black"
     >
-      {/* Layer 1: Latar Belakang (Nebula + Teks LAST DANCE) */}
+
       <div 
         className="absolute inset-0 z-0 bg-nebula opacity-90"
         style={{
@@ -92,7 +92,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Layer 2: Trophy & Foreground (Diposisikan secara Absolut Terpisah - Responsif) */}
       <div 
         ref={trophyRef}
         className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[290px] sm:max-w-[500px] md:max-w-[680px] lg:max-w-[850px] aspect-[565/667] z-10"
@@ -100,7 +99,7 @@ export default function Hero() {
         {/* Trophy Image */}
         <div className="w-full h-full relative">
           <Image
-            src="/images/TROPHY2.png"
+            src="/images/trophy.png"
             alt="MGC Gold Trophy"
             fill
             priority
@@ -108,12 +107,11 @@ export default function Hero() {
           />
         </div>
 
-        {/* Layer 3: Teks Depan Poppins (Menimpa Trofi - Centered Vertically) */}
+
         <div 
           ref={textGroupRef}
           className="absolute inset-0 flex flex-col items-center justify-center text-center translate-y-[7%] z-20"
         >
-          {/* TEXT 1: MANIS GANG (Poppins Semibold) */}
           <h1 className="text-white font-poppins font-semibold text-4xl sm:text-7xl lg:text-[123px] leading-none tracking-[-0.05em] drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             MANIS GANG
           </h1>

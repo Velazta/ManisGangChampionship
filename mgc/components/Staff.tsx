@@ -7,14 +7,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 const staffMembers = [
-  { id: "1", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
-  { id: "2", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
-  { id: "3", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
+  { id: "1", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
+  { id: "2", name: "VELAZTA", role: "DESIGNER & PROGRAMMER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
+  { id: "3", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
   { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
-  { id: "5", name: "VELAZTA", role: "DESIGNER & PROGRAMMER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
-  { id: "6", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
-  { id: "7", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
-  { id: "8", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
+  { id: "5", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
+  { id: "6", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
+  { id: "7", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
+  { id: "8", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "9", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
+
 ];
 
 const extendedStaffList = [];
@@ -122,7 +124,7 @@ export default function Staff() {
             textShadow: "0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.35)"
           }}
         >
-          OUR STAFF
+          OFFICIAL STAFF
         </h2>
 
         {/* Horizontal Marquee Card Slider Container */}
