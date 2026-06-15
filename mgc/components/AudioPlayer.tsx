@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const playlist = [
   { 
     id: "1", 
-    title: "Akuma no Ko", 
+    title: "Akuma", 
     src: "/audio/akuma no ko.mp3" 
   },
   { 
