@@ -14,8 +14,9 @@ const staffMembers = [
   { id: "5", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
   { id: "6", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
   { id: "7", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
-  { id: "8", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
-  { id: "9", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
+  { id: "8", name: "JENE", role: "CASTER", image: "/images/staff-image/CARD FRAME - JENE.png" },
+  { id: "9", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "10", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
 
 ];
 
