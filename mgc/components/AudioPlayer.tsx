@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// CONFIGURATION: Add your audio files to this array.
-// Put the music files inside your /public/audio/ folder, then match the 'src' value here.
 const playlist = [
   { 
     id: "1", 
@@ -15,11 +13,6 @@ const playlist = [
     title: "Memories - Maki", 
     src: "/audio/memories maki.mp3" 
   }
-  // { 
-  //   id: "3", 
-  //   title: "Last Dance Theme", 
-  //   src: "/audio/last_dance.mp3" 
-  // }
 ];
 
 export default function AudioPlayer() {
@@ -27,10 +20,9 @@ export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // 1. Initialize Audio Instance on mount
   useEffect(() => {
     const audio = new Audio();
-    audio.volume = 0.05; // Set volume to 5%
+    audio.volume = 0.05; 
     audioRef.current = audio;
 
     // Load initial track
