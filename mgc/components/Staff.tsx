@@ -12,11 +12,12 @@ const staffMembers = [
   { id: "3", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
   { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
   { id: "5", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
-  { id: "6", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
-  { id: "7", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
-  { id: "8", name: "JENE", role: "CASTER", image: "/images/staff-image/CARD FRAME - JENE.png" },
-  { id: "9", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
-  { id: "10", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
+  { id: "6", name: "AYES", role: "STAFF", image: "/images/staff-image/CARD FRAME - ares.png" },
+  { id: "7", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
+  { id: "8", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
+  { id: "9", name: "JENE", role: "CASTER", image: "/images/staff-image/CARD FRAME - JENE.png" },
+  { id: "10", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "11", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
 
 ];
 
