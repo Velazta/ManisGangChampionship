@@ -10,7 +10,7 @@ export default function Hero() {
   const textGroupRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Logika Countdown Timer ke 22 Juli 2026
+  // 1. Logika Countdown Timer ke 29 Juli 2026
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
