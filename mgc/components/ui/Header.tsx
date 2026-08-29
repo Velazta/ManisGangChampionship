@@ -64,7 +64,7 @@ export default function Header() {
     }
   };
 
-  // Nav items: TEAMS menggunakan /teams route, sisanya scroll anchor di homepage
+  // Nav items: TEAMS menggunakan /teams route, WINNERS scroll ke #winners, sisanya scroll anchor di homepage
   const navItems = ["HOMEPAGE", "STORY", "WINNERS", "PRIZEPOOL", "RECAP", "STAFF", "SPONSORED", "FAQ", "TEAMS"];
 
   // Tentukan href untuk setiap item
@@ -76,7 +76,6 @@ export default function Header() {
 
   // Highlight TEAMS jika sedang di /teams
   const isTeamsActive = pathname === "/teams";
-
 
   return (
     <header
