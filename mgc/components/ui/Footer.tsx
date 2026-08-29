@@ -56,11 +56,13 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-8 gap-y-3 pt-2">
             {[
               { label: "STORY", id: "story" },
+              { label: "WINNERS", id: "winners" },
               { label: "PRIZEPOOL", id: "prizepool" },
               { label: "RECAP", id: "recap" },
               { label: "STAFF", id: "staff" },
               { label: "SPONSORED", id: "sponsored" },
-              { label: "FAQ", id: "faq" }
+              { label: "FAQ", id: "faq" },
+              { label: "TEAMS", id: "teams" }
             ].map((link) => (
               <a
                 key={link.id}
