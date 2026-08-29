@@ -7,40 +7,56 @@ import Footer from "@/components/ui/Footer";
 import GoldParticles from "@/components/GoldParticles";
 import gsap from "gsap";
 
+export interface TeamItem {
+  id: string;
+  name: string;
+  img: string;
+  poster: string;
+}
+
 // ============================================================
 // KONFIGURASI TIM — Edit daftar ini untuk mengubah data tim
-// Letakkan file PNG setiap tim di: /public/images/teams/
+// Letakkan file PNG logo & poster player di: /public/images/teams/
 // ============================================================
-const teams = [
-  { id: "1",  name: "NBA REBORN",    img: "/images/teams/nba.png" },
-  { id: "2",  name: "666",           img: "/images/teams/666.png" },
-  { id: "3",  name: "ASYLUM",        img: "/images/teams/asylum.png" },
-  { id: "4",  name: "AWAKENING",     img: "/images/teams/awakening.png" },
-  { id: "5",  name: "VELORA",        img: "/images/teams/velora.png" },
-  { id: "6",  name: "B2W",           img: "/images/teams/B2W.png" },
-  { id: "7",  name: "BUTTERFLY",     img: "/images/teams/butterfly.png" },
-  { id: "8",  name: "CHROMA",        img: "/images/teams/chroma.png" },
-  { id: "9",  name: "CLWN",          img: "/images/teams/clwn.png" },
-  { id: "10", name: "DOMITHRONE",    img: "/images/teams/domithrone.png" },
-  { id: "11", name: "ECLIPSE",       img: "/images/teams/eclipse.png" },
-  { id: "12", name: "GENTACE",       img: "/images/teams/gentace.png" },
-  { id: "13", name: "SADNESS",       img: "/images/teams/sadness.png" },
-  { id: "14", name: "SNIGHTFALL",    img: "/images/teams/snightfall.png" },
-  { id: "15", name: "SUNSET",        img: "/images/teams/sunset.png" },
-  { id: "16", name: "SUS",           img: "/images/teams/sus.png" },
+const teams: TeamItem[] = [
+  { id: "1",  name: "NBA REBORN",    img: "/images/teams/NBA.png",        poster: "/images/teams/NBA LINEUP PLAYER.png" },
+  { id: "2",  name: "666",           img: "/images/teams/666.png",        poster: "/images/teams/666 LINEUP PLAYER.png" },
+  { id: "3",  name: "ASYLUM",        img: "/images/teams/asylum.png",     poster: "/images/teams/ASYLUM LINEUP PLAYER.png" },
+  { id: "4",  name: "AWAKENING",     img: "/images/teams/awakening.png",  poster: "/images/teams/AWEKENING LINEUP PLAYER.png" },
+  { id: "5",  name: "VELORA",        img: "/images/teams/velora.png",     poster: "/images/teams/VELLORA LINEUP PLAYER.png" },
+  { id: "6",  name: "B2W",           img: "/images/teams/B2W.png",        poster: "/images/teams/B2W LINEUP PLAYER.png" },
+  { id: "7",  name: "BUTTERFLY",     img: "/images/teams/butterfly.png",  poster: "/images/teams/BUTTERFLY LINEUP PLAYER.png" },
+  { id: "8",  name: "CHROMA",        img: "/images/teams/chroma.png",     poster: "/images/teams/CHROMA LINEUP PLAYER.png" },
+  { id: "9",  name: "CLWN",          img: "/images/teams/clwn.png",       poster: "/images/teams/CLWN LINEUP PLAYER.png" },
+  { id: "10", name: "DOMITHRONE",    img: "/images/teams/domithrone.png", poster: "/images/teams/DOMITHRONE LINEUP PLAYER.png" },
+  { id: "11", name: "ECLIPSE",       img: "/images/teams/eclipse.png",    poster: "/images/teams/ECLIPSE LINEUP PLAYER.png" },
+  { id: "12", name: "GENTACE",       img: "/images/teams/gentace.png",    poster: "/images/teams/GENTACE LINEUP PLAYER.png" },
+  { id: "13", name: "SADNESS",       img: "/images/teams/sadness.png",    poster: "/images/teams/SADNESS LINEUP PLAYER.png" },
+  { id: "14", name: "SNIGHTFALL",    img: "/images/teams/snightfall.png", poster: "/images/teams/S NIGHTFALL LINEUP PLAYER.png" },
+  { id: "15", name: "SUNSET",        img: "/images/teams/sunset.png",     poster: "/images/teams/127 LINEUP PLAYER.png" },
+  { id: "16", name: "SUS",           img: "/images/teams/sus.png",        poster: "/images/teams/SUS LINEUP PLAYER.png" },
 ];
 
-function TeamCard({ team }: { team: { id: string; name: string; img: string } }) {
+function TeamCard({
+  team,
+  onSelect,
+}: {
+  team: TeamItem;
+  onSelect: (team: TeamItem) => void;
+}) {
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className="flex flex-col items-center gap-1.5 sm:gap-2 group cursor-default">
+    <div
+      onClick={() => onSelect(team)}
+      className="flex flex-col items-center gap-1.5 sm:gap-2 group cursor-pointer select-none"
+    >
       {/* Card Image — Canvas ratio 844/1184 matching source graphics without cropping */}
       <div
         className="relative w-full overflow-hidden rounded-[4px] transition-all duration-300
                     group-hover:scale-[1.05]
-                    group-hover:drop-shadow-[0_0_16px_rgba(210,160,0,0.7)]"
+                    group-hover:drop-shadow-[0_0_16px_rgba(210,160,0,0.75)]"
         style={{ aspectRatio: "844 / 1184" }}
       >
         {!hasError && (
@@ -55,6 +71,15 @@ function TeamCard({ team }: { team: { id: string; name: string; img: string } })
             onError={() => setHasError(true)}
           />
         )}
+
+        {/* Hover overlay hint */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-[4px]">
+          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#D27000]/90 border border-white/30 flex items-center justify-center text-white shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+          </div>
+        </div>
 
         {/* Fallback placeholder jika gambar error ATAU belum dimuat */}
         {(!isLoaded || hasError) && (
@@ -96,6 +121,17 @@ export default function TeamsPage() {
   const titleRef = useRef<HTMLDivElement>(null);
   const text1Ref = useRef<HTMLHeadingElement>(null);
   const gridRef  = useRef<HTMLDivElement>(null);
+
+  const [selectedTeam, setSelectedTeam] = useState<TeamItem | null>(null);
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedTeam(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -234,6 +270,7 @@ export default function TeamsPage() {
                 zIndex: 0,
               }}
             >
+              OFFICIAL LINEUP
             </span>
 
             {/* Layer 2: Fill gradient emas */}
@@ -252,6 +289,7 @@ export default function TeamsPage() {
                 filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.55))",
               }}
             >
+              OFFICIAL LINEUP
             </span>
           </div>
         </div>
@@ -262,7 +300,7 @@ export default function TeamsPage() {
           className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 lg:gap-6 w-full max-w-[1440px] mx-auto"
         >
           {teams.map((team) => (
-            <TeamCard key={team.id} team={team} />
+            <TeamCard key={team.id} team={team} onSelect={(t) => setSelectedTeam(t)} />
           ))}
         </div>
 
@@ -272,6 +310,61 @@ export default function TeamsPage() {
       <div className="relative z-10 w-full mt-auto">
         <Footer />
       </div>
+
+      {/* ── Interactive Player Lineup Poster Modal ──────────────── */}
+      {selectedTeam && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center p-4 sm:p-6 animate-fade-in select-none"
+          onClick={() => setSelectedTeam(null)}
+        >
+          <div
+            className="relative max-w-5xl max-h-[92vh] w-full h-full flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header Bar */}
+            <div className="w-full flex items-center justify-between pb-3 px-2 mb-2 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="relative w-8 h-8 rounded overflow-hidden border border-[#D27000]/60">
+                  <Image
+                    src={selectedTeam.img}
+                    alt={selectedTeam.name}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <h3 className="font-poppins font-bold text-white text-sm sm:text-lg tracking-wider uppercase text-glow-white">
+                    {selectedTeam.name}
+                  </h3>
+                  <span className="font-poppins text-[10px] sm:text-xs text-[#FFD591] tracking-widest uppercase">
+                    OFFICIAL PLAYER LINEUP
+                  </span>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedTeam(null)}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#D27000] hover:border-[#D27000] transition-all cursor-pointer shadow-lg active:scale-90"
+                aria-label="Close Preview"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Poster Preview Container */}
+            <div className="relative w-full flex-1 max-h-[82vh] flex items-center justify-center overflow-hidden rounded-lg">
+              <Image
+                src={selectedTeam.poster}
+                alt={`${selectedTeam.name} Player Lineup Poster`}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
