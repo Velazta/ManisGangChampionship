@@ -318,34 +318,19 @@ export default function TeamsPage() {
           onClick={() => setSelectedTeam(null)}
         >
           <div
-            className="relative max-w-5xl max-h-[92vh] w-full h-full flex flex-col items-center justify-center"
+            className="relative max-w-4xl max-h-[92vh] w-full h-full flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header Bar */}
-            <div className="w-full flex items-center justify-between pb-3 px-2 mb-2 border-b border-white/10">
-              <div className="flex items-center gap-3">
-                <div className="relative w-8 h-8 rounded overflow-hidden border border-[#D27000]/60">
-                  <Image
-                    src={selectedTeam.img}
-                    alt={selectedTeam.name}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <h3 className="font-poppins font-bold text-white text-sm sm:text-lg tracking-wider uppercase text-glow-white">
-                    {selectedTeam.name}
-                  </h3>
-                  <span className="font-poppins text-[10px] sm:text-xs text-[#FFD591] tracking-widest uppercase">
-                    OFFICIAL PLAYER LINEUP
-                  </span>
-                </div>
-              </div>
+            {/* Modal Header Bar (Centered Team Name + Top Right Close Button) */}
+            <div className="relative w-full flex items-center justify-center pb-3 mb-3 border-b border-white/15">
+              <h3 className="font-poppins font-black text-white text-2xl sm:text-3xl lg:text-4xl tracking-wider uppercase text-glow-white text-center">
+                {selectedTeam.name}
+              </h3>
 
-              {/* Close Button */}
+              {/* Close Button Top Right */}
               <button
                 onClick={() => setSelectedTeam(null)}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-[#D27000] hover:border-[#D27000] transition-all cursor-pointer shadow-lg active:scale-90"
+                className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 border border-white/20 text-white/80 hover:text-white hover:bg-white/20 transition-all cursor-pointer flex items-center justify-center active:scale-90"
                 aria-label="Close Preview"
               >
                 ✕
