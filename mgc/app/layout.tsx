@@ -29,6 +29,12 @@ const cinzelDecorative = Cinzel_Decorative({
 export const metadata: Metadata = {
   title: "Manis Gang Championship | Violence District",
   description: "Official Tournament Page For Manis Gang Championship",
+  keywords: [
+    "Violence District",
+    "Manis Gang Championship",
+    "MGC",
+    "Manis Gang Championship Official Tournament"
+  ]
 };
 
 export default function RootLayout({
