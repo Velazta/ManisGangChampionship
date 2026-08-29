@@ -65,7 +65,7 @@ export default function Header() {
   };
 
   // Nav items: TEAMS menggunakan /teams route, sisanya scroll anchor di homepage
-  const navItems = ["HOMEPAGE", "STORY", "PRIZEPOOL", "RECAP", "STAFF", "SPONSORED", "FAQ", "TEAMS"];
+  const navItems = ["HOMEPAGE", "STORY", "WINNERS", "PRIZEPOOL", "RECAP", "STAFF", "SPONSORED", "FAQ", "TEAMS"];
 
   // Tentukan href untuk setiap item
   const getHref = (item: string) => {

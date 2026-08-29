@@ -10,25 +10,24 @@ import gsap from "gsap";
 // ============================================================
 // KONFIGURASI TIM — Edit daftar ini untuk mengubah data tim
 // Letakkan file PNG setiap tim di: /public/images/teams/
-// Contoh: /public/images/teams/nba-reborn.png
 // ============================================================
 const teams = [
-  { id: "1",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "2",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "3",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "4",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "5",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "6",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "7",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "8",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "9",  name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "10", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "11", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "12", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "13", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "14", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "15", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
-  { id: "16", name: "NBA REBORN",  img: "/images/teams/NBA.png" },
+  { id: "1",  name: "NBA REBORN",    img: "/images/teams/NBA.png" },
+  { id: "2",  name: "666",           img: "/images/teams/666.png" },
+  { id: "3",  name: "ASYLUM",        img: "/images/teams/asylum.png" },
+  { id: "4",  name: "AWAKENING",     img: "/images/teams/awakening.png" },
+  { id: "5",  name: "VELORA",        img: "/images/teams/velora.png" },
+  { id: "6",  name: "B2W",           img: "/images/teams/B2W.png" },
+  { id: "7",  name: "BUTTERFLY",     img: "/images/teams/butterfly.png" },
+  { id: "8",  name: "CHROMA",        img: "/images/teams/chroma.png" },
+  { id: "9",  name: "CLWN",          img: "/images/teams/clwn.png" },
+  { id: "10", name: "DOMITHRONE",    img: "/images/teams/domithrone.png" },
+  { id: "11", name: "ECLIPSE",       img: "/images/teams/eclipse.png" },
+  { id: "12", name: "GENTACE",       img: "/images/teams/gentace.png" },
+  { id: "13", name: "SADNESS",       img: "/images/teams/sadness.png" },
+  { id: "14", name: "SNIGHTFALL",    img: "/images/teams/snightfall.png" },
+  { id: "15", name: "SUNSET",        img: "/images/teams/sunset.png" },
+  { id: "16", name: "SUS",           img: "/images/teams/sus.png" },
 ];
 
 function TeamCard({ team }: { team: { id: string; name: string; img: string } }) {
@@ -37,19 +36,19 @@ function TeamCard({ team }: { team: { id: string; name: string; img: string } })
 
   return (
     <div className="flex flex-col items-center gap-1.5 sm:gap-2 group cursor-default">
-      {/* Card Image — square aspect ratio */}
+      {/* Card Image — Canvas ratio 844/1184 matching source graphics without cropping */}
       <div
-        className="relative w-full overflow-hidden rounded-[3px] transition-all duration-300
+        className="relative w-full overflow-hidden rounded-[4px] transition-all duration-300
                     group-hover:scale-[1.05]
-                    group-hover:drop-shadow-[0_0_14px_rgba(210,160,0,0.65)]"
-        style={{ aspectRatio: "1 / 1" }}
+                    group-hover:drop-shadow-[0_0_16px_rgba(210,160,0,0.7)]"
+        style={{ aspectRatio: "844 / 1184" }}
       >
         {!hasError && (
           <Image
             src={team.img}
             alt={`${team.name} logo`}
             fill
-            className={`object-cover select-none pointer-events-none transition-opacity duration-300 ${
+            className={`object-contain select-none pointer-events-none transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setIsLoaded(true)}
@@ -61,7 +60,7 @@ function TeamCard({ team }: { team: { id: string; name: string; img: string } })
         {(!isLoaded || hasError) && (
           <div
             className="absolute inset-0 flex items-center justify-center
-                        bg-[#0a0a0a] border border-[#D27000]/50 rounded-[3px]"
+                        bg-[#0a0a0a] border border-[#D27000]/50 rounded-[4px]"
           >
             <div className="flex flex-col items-center gap-1 opacity-40">
               <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#D27000] fill-current" viewBox="0 0 24 24">
