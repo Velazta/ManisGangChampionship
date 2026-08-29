@@ -12,7 +12,7 @@ import gsap from "gsap";
 // Letakkan file PNG setiap tim di: /public/images/teams/
 // ============================================================
 const teams = [
-  { id: "1",  name: "NBA REBORN",    img: "/images/teams/NBA.png" },
+  { id: "1",  name: "NBA REBORN",    img: "/images/teams/nba.png" },
   { id: "2",  name: "666",           img: "/images/teams/666.png" },
   { id: "3",  name: "ASYLUM",        img: "/images/teams/asylum.png" },
   { id: "4",  name: "AWAKENING",     img: "/images/teams/awakening.png" },
@@ -234,7 +234,6 @@ export default function TeamsPage() {
                 zIndex: 0,
               }}
             >
-              OFFICIAL LINEUP
             </span>
 
             {/* Layer 2: Fill gradient emas */}
@@ -253,7 +252,6 @@ export default function TeamsPage() {
                 filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.55))",
               }}
             >
-              OFFICIAL LINEUP
             </span>
           </div>
         </div>
