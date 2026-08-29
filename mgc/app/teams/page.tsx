@@ -19,7 +19,7 @@ export interface TeamItem {
 // Letakkan file PNG logo & poster player di: /public/images/teams/
 // ============================================================
 const teams: TeamItem[] = [
-  { id: "1",  name: "NBA REBORN",    img: "/images/teams/nba.png",        poster: "/images/teams/NBA LINEUP PLAYERs.png" },
+  { id: "1",  name: "NBA REBORN",    img: "/images/teams/NBAS.png",        poster: "/images/teams/NBA LINEUP PLAYERs.png" },
   { id: "2",  name: "666",           img: "/images/teams/666.png",        poster: "/images/teams/666 LINEUP PLAYER.png" },
   { id: "3",  name: "ASYLUM",        img: "/images/teams/asylum.png",     poster: "/images/teams/ASYLUM LINEUP PLAYER.png" },
   { id: "4",  name: "AWAKENING",     img: "/images/teams/awakening.png",  poster: "/images/teams/AWEKENING LINEUP PLAYER.png" },
