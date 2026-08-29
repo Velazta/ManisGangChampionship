@@ -53,7 +53,7 @@ export default function Header() {
     }
   };
 
-  const navItems = ["HOMEPAGE", "STORY", "PRIZEPOOL", "RECAP", "STAFF", "SPONSORED", "FAQ"];
+  const navItems = ["HOMEPAGE", "STORY", "WINNERS", "PRIZEPOOL", "RECAP", "STAFF", "SPONSORED", "FAQ"];
 
   return (
     <header 
