@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
+import Winners from "@/components/Winners";
 import Prizepool from "@/components/Prizepool";
 import Recap from "@/components/Recap";
 import Staff from "@/components/Staff";
@@ -28,19 +29,22 @@ export default function Home() {
       {/* Section 2: Story */}
       <Story />
 
-      {/* Section 3: Prizepool */}
+      {/* Section 3: Wall of Winners */}
+      <Winners />
+
+      {/* Section 4: Prizepool */}
       <Prizepool />
 
-      {/* Section 4: Recap */}
+      {/* Section 5: Recap */}
       <Recap />
 
-      {/* Section 5: Staff */}
+      {/* Section 6: Staff */}
       <Staff />
 
-      {/* Section 6: Sponsored */}
+      {/* Section 7: Sponsored */}
       <Sponsored />
 
-      {/* Section 7: FAQ */}
+      {/* Section 8: FAQ */}
       <Faq />
 
       {/* Footer */}

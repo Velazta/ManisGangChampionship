@@ -5,21 +5,30 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// List staff members dasar (4 orang)
+
 const staffMembers = [
-  { id: "1", name: "VELAZTA", role: "DESAINER" },
-  { id: "2", name: "MGC STAFF 1", role: "DEVELOPER" },
-  { id: "3", name: "MGC STAFF 2", role: "ORGANIZER" },
-  { id: "4", name: "MGC STAFF 3", role: "COMMUNITY" },
+  { id: "1", name: "NEOPAREA", role: "ANIMATOR", image: "/images/staff-image/CARD FRAME - NEOPAREA.png" },
+  { id: "2", name: "VELAZTA", role: "DESIGNER & PROGRAMMER", image: "/images/staff-image/CARD FRAME - RAVEL.png" },
+  { id: "3", name: "VIN", role: "STAFF", image: "/images/staff-image/CARD FRAME - VIN.png" },
+  { id: "4", name: "NORA", role: "STAFF", image: "/images/staff-image/CARD FRAME - NORA.png" },
+  { id: "5", name: "EZA", role: "STAFF", image: "/images/staff-image/CARD FRAME - EJA.png" },
+  { id: "6", name: "RITSHO", role: "STAFF", image: "/images/staff-image/CARD FRAME - RITSHO.png" },
+  { id: "7", name: "AGUS", role: "STAFF", image: "/images/staff-image/CARD FRAME - AGUS.png" },
+  { id: "8", name: "AYES", role: "STAFF", image: "/images/staff-image/CARD FRAME - ares.png" },
+  { id: "9", name: "YUUTAA", role: "HEAD ORGANIZER & CASTER", image: "/images/staff-image/CARD FRAME - YUTA.png" },
+  { id: "10", name: "FASHGU", role: "CASTER", image: "/images/staff-image/CARD FRAME - fashgu.png" },
+  { id: "11", name: "JENE", role: "SPECIAL GUESTAR", image: "/images/staff-image/CARD FRAME - JENE.png" },
+  { id: "12", name: "VENUS", role: "CASTER", image: "/images/staff-image/CARD FRAME - VENUS.png" },
+  { id: "13", name: "SHIROU", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - INDRUY.png" },
+  { id: "14", name: "SHIFER", role: "SPONSORSHIP", image: "/images/staff-image/CARD FRAME - SHIFER.png" },
+
 ];
 
-// Buat list 20 staff dengan menduplikasi data dasar
 const extendedStaffList = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 3; i++) {
   extendedStaffList.push(...staffMembers.map((staff, index) => ({
     ...staff,
     id: `${staff.id}-${i}-${index}`,
-    name: staff.name,
   })));
 }
 
@@ -120,7 +129,7 @@ export default function Staff() {
             textShadow: "0 0 15px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.35)"
           }}
         >
-          OUR STAFF
+          OFFICIAL STAFF
         </h2>
 
         {/* Horizontal Marquee Card Slider Container */}
@@ -140,7 +149,7 @@ export default function Staff() {
               >
                 {/* Card Background Image (Avatar + Orange bottom gradient) */}
                 <Image
-                  src="/images/CARD BACKGROUND.png"
+                  src={staff.image}
                   alt={`${staff.name} Avatar`}
                   fill
                   className="object-cover select-none pointer-events-none"
